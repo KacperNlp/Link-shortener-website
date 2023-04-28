@@ -1,7 +1,10 @@
 <template>
-  <h1>Hello World!</h1>
-  <AppButton text="Example" />
+  <main>
+    <AppButton text="Shorten" />
+    <AppInput
+      inputType="text"
+      labelText="Please put your website address"
+      inputPlaceholder="https://example.com"
+    />
+  </main>
 </template>
-
-<style>
-</style>
