@@ -1,6 +1,6 @@
 <template>
   <main>
-    <AppButton text="Shorten" />
+    <AppButton text="Shorten" @submit-link="submitLink"/>
     <AppInput
       inputType="text"
       labelText="Please put your website address"
@@ -8,3 +8,14 @@
     />
   </main>
 </template>
+
+<script>
+export default {
+  name: "App",
+  methods: {
+    submitLink() {
+      console.log('Submit')
+    }
+  },
+}
+</script>
