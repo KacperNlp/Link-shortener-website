@@ -1,7 +1,7 @@
 <template>
   <label>
     <span>{{ labelText }}</span>
-    <input :type="inputType" :placeholder="inputPlaceholder" />
+    <input :value="modelValue" @input="updateLinkValue" :type="inputType" :placeholder="inputPlaceholder" />
   </label>
 </template>
 <script>
@@ -19,6 +19,15 @@ export default {
     inputPlaceholder: {
       type: String,
       required: true
+    },
+    modelValue: String
+  },
+
+  emits: ['update:modelValue'],
+
+  methods: {
+    updateLinkValue(e) {
+      this.$emit('update:modelValue', e.target.value)
     }
   }
 }
