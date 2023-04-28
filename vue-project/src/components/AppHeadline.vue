@@ -1,5 +1,5 @@
 <template>
-    <h1>{{ headline }}</h1>
+    <h1 class="mb-6 text-xl xl:text-4xl font-bold text-center xl:text-left">{{ headline }}</h1>
 </template>
 <script>
 export default {
