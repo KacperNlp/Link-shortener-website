@@ -1,13 +1,20 @@
 <template>
   <main>
-    <AppInput
-      inputType="text"
-      labelText="Please put your website address"
-      inputPlaceholder="https://example.com"
-      v-model="normalLink"
+    <AppHeadlineWithImg />
+    <div class="bg-slate-100">
+      <AppInput
+        inputType="text"
+        labelText="Please put your website address"
+        inputPlaceholder="https://example.com"
+        v-model="normalLink"
+      />
+      <AppButton text="Shorten" @submit-link="submitLink" />
+    </div>
+    <AppResult
+      v-if="isLinkGenereted"
+      textAboveResult="Your generated link:"
+      :generatedLink="generatedLink"
     />
-    <AppButton text="Shorten" @submit-link="submitLink" />
-    <AppResult v-if="isLinkGenereted" textAboveResult="Your generated link:" :generatedLink="generatedLink" />
   </main>
 </template>
 

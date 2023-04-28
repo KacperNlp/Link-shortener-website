@@ -21,7 +21,7 @@ export default {
 
   methods: {
     copyOnClick() {
-      navigator.clipboard.writeText(this.generatedLink);
+      navigator.clipboard.writeText(this.generatedLink)
     }
   }
 }
