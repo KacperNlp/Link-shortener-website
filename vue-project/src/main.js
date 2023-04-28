@@ -1,6 +1,13 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-import './assets/main.css'
+import AppButton from './components/AppButton.vue';
 
-createApp(App).mount('#app')
+import './assets/main.css'
+import './index.css';
+
+const app = createApp(App);
+
+app.component('AppButton', AppButton);
+
+app.mount('#app')
