@@ -18,7 +18,7 @@ export default {
 
   methods: {
     submitLink() {
-        this.$emit('submitLink');
+      this.$emit('submitLink')
     }
   }
 }
