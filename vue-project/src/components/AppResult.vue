@@ -1,14 +1,15 @@
 <template>
   <section>
     <p>{{ textAboveResult }}</p>
-    <p>{{ inputResult }}</p>
+    <p>{{ generatedLink }}</p>
+    <button @click="copyOnClick">Copy</button>
   </section>
 </template>
 <script>
 export default {
   name: 'AppResult',
   props: {
-    inputResult: {
+    generatedLink: {
       type: String,
       required: false
     },
@@ -17,5 +18,11 @@ export default {
       required: true
     }
   },
+
+  methods: {
+    copyOnClick() {
+      navigator.clipboard.writeText(this.generatedLink);
+    }
+  }
 }
 </script>

@@ -1,7 +1,12 @@
 <template>
   <label>
     <span>{{ labelText }}</span>
-    <input :value="modelValue" @input="updateLinkValue" :type="inputType" :placeholder="inputPlaceholder" />
+    <input
+      :value="modelValue"
+      @input="updateLinkValue"
+      :type="inputType"
+      :placeholder="inputPlaceholder"
+    />
   </label>
 </template>
 <script>

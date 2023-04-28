@@ -7,7 +7,7 @@
       v-model="normalLink"
     />
     <AppButton text="Shorten" @submit-link="submitLink" />
-    <AppResult textAboveResult="Your generated link:" inputResult="Hello there!" />
+    <AppResult v-if="isLinkGenereted" textAboveResult="Your generated link:" :generatedLink="generatedLink" />
   </main>
 </template>
 
@@ -21,9 +21,15 @@ export default {
     }
   },
 
+  computed: {
+    isLinkGenereted() {
+      return !!this.generatedLink
+    }
+  },
+
   methods: {
     submitLink() {
-      console.log(this.normalLink);
+      this.generatedLink = this.normalLink
     }
   }
 }

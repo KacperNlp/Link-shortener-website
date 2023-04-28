@@ -10,6 +10,9 @@ import './index.css'
 
 const app = createApp(App)
 
-app.component('AppButton', AppButton).component('AppInput', AppInput).component('AppResult', AppResult);
+app
+  .component('AppButton', AppButton)
+  .component('AppInput', AppInput)
+  .component('AppResult', AppResult)
 
 app.mount('#app')
