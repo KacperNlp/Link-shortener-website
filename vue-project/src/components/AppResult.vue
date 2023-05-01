@@ -1,5 +1,5 @@
 <template>
-  <section class="md:p-8 md:bg-slate-200">
+  <section class="p-8 pt-4 md:pt-8 md:bg-slate-200">
     <p class="mb-2">{{ textAboveResult }}</p>
     <div class="flex flex-row bg-white rounded">
       <p class="h-[22px] w-full p-2">{{ generatedLink }}</p>

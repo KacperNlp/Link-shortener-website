@@ -4,7 +4,7 @@
   >
     <AppHeadlineWithImg />
     <div class="flex flex-col w-full bg-slate-100">
-      <div class="flex flex-col justify-end h-full gap-4 p-8 pb-14">
+      <div class="flex flex-col justify-end h-full gap-4 p-8 pb-4 md:pb-14">
         <AppInput
           inputType="text"
           labelText="Please put your website address"
