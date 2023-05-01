@@ -1,11 +1,12 @@
 <template>
-  <label>
-    <span>{{ labelText }}</span>
+  <label class="flex flex-col md:mb-8">
+    <span class="pb-2">{{ labelText }}</span>
     <input
       :value="modelValue"
       @input="updateLinkValue"
       :type="inputType"
       :placeholder="inputPlaceholder"
+      class="py-2 pl-2"
     />
   </label>
 </template>

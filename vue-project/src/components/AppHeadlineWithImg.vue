@@ -1,6 +1,7 @@
 <template>
-  <header>
+  <header class="w-full md:p-8 md:bg-white">
     <AppHeadline headline="App Link Shortner" />
+    <AppIcon iconUrl="/src/assets/share-link.svg" iconAlt="Link shortner icon"/>
   </header>
 </template>
 <script>
