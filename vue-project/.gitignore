@@ -27,4 +27,4 @@ coverage
 *.sln
 *.sw?
 
-./src/config.js
+src/config.js

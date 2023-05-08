@@ -40,22 +40,20 @@ export default {
     async submitLink() {
       this.generatedLink = this.normalLink
 
-      await fetch('https://api-ssl.bitly.com/v4/shorten', {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer {${APP_TOKEN}}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          long_url: 'https://dev.bitly.com',
-          domain: 'bit.ly',
-          group_guid: 'Ba1bc23dE4F'
+      await fetch(`https://api.shrtco.de/v2/shorten?url=${this.normalLink}`)
+        .then((res) => {
+          if (res.ok) {
+            return res.json()
+          }
+
+          throw new Error('We cannot get response status code ' + res.status)
         })
-      }).then((res) => {
-        console.log(res)
-        console.log('Response')
-        console.log(APP_TOKEN)
-      })
+        .then((res) => {
+          this.generatedLink = res.result.short_link3
+        })
+        .catch((err) => {
+          console.log(err)
+        })
     }
   }
 }
