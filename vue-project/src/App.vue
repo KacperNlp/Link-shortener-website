@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import { APP_TOKEN } from './config'
+
 export default {
   name: 'App',
   data() {
@@ -35,9 +37,28 @@ export default {
   },
 
   methods: {
-    submitLink() {
+    async submitLink() {
       this.generatedLink = this.normalLink
+
+      await fetch('https://api-ssl.bitly.com/v4/shorten', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer {${APP_TOKEN}}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          long_url: 'https://dev.bitly.com',
+          domain: 'bit.ly',
+          group_guid: 'Ba1bc23dE4F'
+        })
+      }).then((res) => {
+        console.log(res)
+        console.log('Response')
+        console.log(APP_TOKEN)
+      })
     }
   }
 }
 </script>
+
+//app token
