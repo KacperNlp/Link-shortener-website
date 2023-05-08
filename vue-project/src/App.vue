@@ -38,25 +38,47 @@ export default {
 
   methods: {
     async submitLink() {
-      this.generatedLink = this.normalLink
+      if (this.checkIfLinkIsCorrect(this.normalLink)) {
+        const objectToBitly = {
+          long_url: this.normalLink
+        }
 
-      await fetch(`https://api.shrtco.de/v2/shorten?url=${this.normalLink}`)
-        .then((res) => {
-          if (res.ok) {
-            return res.json()
-          }
+        await fetch('https://api-ssl.bitly.com/v4/shorten', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${APP_TOKEN}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(objectToBitly)
+        })
+          .then((res) => {
+            if (res.ok) {
+              return res.json()
+            }
 
-          throw new Error('We cannot get response status code ' + res.status)
-        })
-        .then((res) => {
-          this.generatedLink = res.result.short_link3
-        })
-        .catch((err) => {
-          console.log(err)
-        })
+            this.generatedLink = ''
+            throw new Error(`Problem with connection, status code: ${res.status}`)
+          })
+          .then((res) => {
+            this.generatedLink = res.link
+          })
+          .catch((err) => {
+            if (err) {
+              alert('Sorry we have problem with connection! :/')
+            }
+          })
+      }
+    },
+
+    checkIfLinkIsCorrect(link) {
+      if (!link.includes('https://') && !link.includes('http://')) {
+        this.generatedLink = ''
+        alert('You put a wrong value! It has to be a link')
+        return false
+      }
+
+      return true
     }
   }
 }
 </script>
-
-//app token

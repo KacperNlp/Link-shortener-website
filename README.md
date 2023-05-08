@@ -9,6 +9,7 @@ Project cretaed for learning Vue and Tailwind from here: https://www.codementor.
     <li>JavaScript</li>
     <li>Vue</li>
     <li>Tailwind CSS</li>
+    <li>Bitly</li>
 </ul>
 
 ## Preview
